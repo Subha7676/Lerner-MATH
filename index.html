@@ -1,0 +1,70 @@
+html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lerner-MATH</title>
+</head>
+<body>
+  <h1>Welcome to Lerner-MATH</h1>
+  <p>This site will redirect tutorials based on school, class, and math topics.</p>
+</body>
+</html>
+🔹 `index.html`
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Learner MATH</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Learner MATH</h1>
+  <p>Select your state, class, and topic to view tutorial</p>
+
+  <input type="text" id="state" placeholder="Enter your State">
+  <input type="number" id="class" placeholder="Enter Class (1-12)">
+  <input type="text" id="topic" placeholder="Enter Math Topic">
+  <button onclick="search()">Search</button>
+
+  <div id="result"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+---
+
+🔹 `style.css`
+
+```css
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 40px;
+  background-color: #f0f0f0;
+}
+input {
+  margin: 10px;
+  padding: 8px;
+  width: 200px;
+}
+button {
+  padding: 10px 20px;
+}
+```
+
+---
+
+🔹 `script.js`
+
+```javascript
+function search() {
+  const state = document.getElementById("state").value.toLowerCase();
+  const grade = document.getElementById("class").value;
+  const topic = document.getElementById("topic").value.toLowerCase();
+
+  // Example YouTube search redirect
+  const query = `state class{grade} math topic`;
+  const url = `https://www.youtube.com/results?search_query={encodeURIComponent(query)}`;

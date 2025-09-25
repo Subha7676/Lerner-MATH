@@ -1,0 +1,44 @@
+```html
+<div id="premium-section" style="border: 2px solid gold; padding: 10px; margin-top: 20px; background-color: #fff8dc;">
+  <h3>🌟 Premium Tutorials 🌟</h3>
+  <div id="premium-video">
+    <!-- Premium video will show here -->
+  </div>
+</div>
+```
+
+---
+
+2. Add premium videos data in `script.js`
+
+Add this at the top of your JS code:
+
+```javascript
+const premiumVideos = {
+  "algebra": "https://www.youtube.com/watch?v=ZGFzInqB1Js",
+  "geometry": "https://www.youtube.com/watch?v=5l4gX34E4QA",
+  "trigonometry": "https://www.youtube.com/watch?v=sQZtW_qH3zA"
+};
+
+function showPremium(topic) {
+  const premiumDiv = document.getElementById("premium-video");
+  if (premiumVideos[topic]) {
+    premiumDiv.innerHTML = `<p><strong>Premium Pick for topic:</strong></p>
+                            <a href="{premiumVideos[topic]}" target="_blank">Watch Premium Video</a>`;
+  } else {
+    premiumDiv.innerHTML = "<p>No premium video available for this topic.</p>";
+  }
+}
+```
+
+---
+
+3. Update your `search()` function to call `showPremium`
+
+At the end of your `search()` function, add:
+
+```javascript
+showPremium(topic);
+```
+
+---

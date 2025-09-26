@@ -1,73 +1,103 @@
-html
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Lerner-MATH</title>
-</head>
-<body>
-  <h1>Welcome to Lerner-MATH</h1>
-  <p>This site will redirect tutorials based on school, class, and math topics.</p>
-</body>
-</html>
-🔹 `index.html`
-
 ```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Learner MATH</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Lerner MATH</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f2f2f2;
+    }
+    header {
+      background: #007acc;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .search-box {
+      text-align: center;
+      margin: 20px;
+    }
+    input[type="text"] {
+      width: 60%;
+      padding: 10px;
+      font-size: 16px;
+    }
+    .subjects {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .subject {
+      background: white;
+      margin: 10px;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      width: 200px;
+      text-align: center;
+    }
+    .subject a {
+      text-decoration: none;
+      color: #007acc;
+      font-weight: bold;
+    }
+    .premium {
+      background: #ffeaa7;
+      margin: 30px auto;
+      padding: 20px;
+      width: 90%;
+      text-align: center;
+      border-radius: 10px;
+    }
+[26/09, 3:56 pm] ChatGPT: </style>
 </head>
 <body>
-  <h1>Learner MATH</h1>
-  <p>Select your state, class, and topic to view tutorial</p>
+  <header>
+    <h1>Lerner MATH</h1>
+    <p>Math tutorials for Class 1 to 12 (India)</p>
+  </header>
 
-  <input type="text" id="state" placeholder="Enter your State">
-  <input type="number" id="class" placeholder="Enter Class (1-12)">
-  <input type="text" id="topic" placeholder="Enter Math Topic">
-  <button onclick="search()">Search</button>
+  <div class="search-box">
+    <input type="text" placeholder="Search by State, Class or Topic..." onkeyup="searchFunction()">
+  </div>
 
-  <div id="result"></div>
+  <div class="subjects" id="subjectList">
+    <div class="subject"><a href="https://www.youtube.com/results?search_query=class+1+math+tutorial">Class 1</a></div>
+    <div class="subject"><a href="https://www.youtube.com/results?search_query=class+2+math+tutorial">Class 2</a></div>
+    <div class="subject"><a href="https://www.youtube.com/results?search_query=class+3+math+tutorial">Class 3</a></div>
+    <div class="subject"><a href="https://www.youtube.com/results?search_query=class+4+math+tutorial">Class 4</a></div>
+    <div class="subject"><a href="https://www.youtube.com/results?search_query=class+5+math+tutorial">Class 5</a></div>
+    <div class="subject"><a href="https://www.youtube.com/results?search_query=class+6+math+tutorial">Class 6</a></div>
+    <div class="subject"><a href="https://www.youtube.com/results?search_query=class+7+math+tutorial">Class 7</a></div>
+    <div class="subject"><a href="https://www.youtube.com/results?search_query=class+8+math+tutorial">Class 8</a></div>
+[26/09, 3:56 pm] ChatGPT: <div class="subject"><a href="https://www.youtube.com/results?search_query=class+9+math+tutorial">Class 9</a></div>
+    <div class="subject"><a href="https://www.youtube.com/results?search_query=class+10+math+tutorial">Class 10</a></div>
+    <div class="subject"><a href="https://www.youtube.com/results?search_query=class+11+math+tutorial">Class 11</a></div>
+    <div class="subject"><a href="https://www.youtube.com/results?search_query=class+12+math+tutorial">Class 12</a></div>
+  </div>
 
-  <script src="script.js"></script>
+  <div class="premium">
+    <h2>Premium Section 🔒</h2>
+    <p>Best handpicked math videos without ads</p>
+    <a href="https://www.youtube.com/@TopMathPremium" target="_blank">Watch Now</a>
+  </div>
+
+  <script>
+    function searchFunction() {
+      const input = document.querySelector("input").value.toLowerCase();
+      const items = document.querySelectorAll(".subject");
+      items.forEach(item => {
+        const text = item.innerText.toLowerCase();
+        item.style.display = text.includes(input) ? "block" : "none";
+      });
+    }
+  </script>
 </body>
 </html>
+
+```html
+<a href="bar.html">Search Tutorial</a>
 ```
-
----
-
-🔹 `style.css`
-
-```css
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding: 40px;
-  background-color: #f0f0f0;
-}
-input {
-  margin: 10px;
-  padding: 8px;
-  width: 200px;
-}
-button {
-  padding: 10px 20px;
-}
-```
-
----
-
-🔹 `script.js`
-
-```javascript
-function search() {
-  const state = document.getElementById("state").value.toLowerCase();
-  const grade = document.getElementById("class").value;
-  const topic = document.getElementById("topic").value.toLowerCase();
-
-  // Example YouTube search redirect
-  const query = `state class{grade} math topic`;
-  const url = `https://www.youtube.com/results?search_query={encodeURIComponent(query)}`;
-
-html
-<a href="bar.html">Open Bar Page</a>

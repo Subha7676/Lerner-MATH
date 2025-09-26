@@ -1,0 +1,61 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Math Tutorials</title>
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    .videoItem {
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h2>Search Math Tutorials by State or Class</h2>
+  <input type="text" id="searchInput" placeholder="Type state or class (e.g., 'Delhi' or '10')" onkeyup="searchFunction()">
+
+  <div id="videoList">
+    <div class="videoItem" data-state="Uttar Pradesh" data-class="10">
+      Math Video for UP Class 10 - 
+      <a href="https://youtu.be/example1" target="_blank">Watch</a>
+    </div>
+    <div class="videoItem" data-state="Delhi" data-class="12">
+      Math Video for Delhi Class 12 - 
+      <a href="https://youtu.be/example2" target="_blank">Watch</a>
+    </div>
+    <div class="videoItem" data-state="Maharashtra" data-class="8">
+      Math Video for Maharashtra Class 8 - 
+      <a href="https://youtu.be/example3" target="_blank">Watch</a>
+    </div>
+  </div>
+
+  <script>
+[25/09, 5:01 pm] ChatGPT: function searchFunction() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const videos = document.getElementsByClassName('videoItem');
+      
+      for (let video of videos) {
+        const state = video.getAttribute('data-state').toLowerCase();
+        const cls = video.getAttribute('data-class').toLowerCase();
+        
+        if (state.includes(input) || cls.includes(input)) {
+          video.style.display = '';
+        } else {
+          video.style.display = 'none';
+        }
+      }
+    }
+  </script>
+</body>
+</html>
+```

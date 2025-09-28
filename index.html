@@ -1,164 +1,152 @@
-html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lerner MATH - India Schools</title>
-  <style>
-    :root {
-      --bg: #121212;
-      --card: #1e1e1e;
-      --text: #f1f1f1;
-      --accent: #00adb5;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background: #000;
-      text-align: center;
-      padding: 30px 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    }
-
-    header h1 {
-      font-size: 2.5em;
-      color: var(--accent);
-    }
-
-    .container {
-      max-width: 700px;
-      margin: 30px auto;
-      background: var(--card);
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,255,255,0.1);
-    }
-
-    .search-bar {
-      display: flex;
-      gap: 10px;
-      flex-direction: column;
-      margin-bottom: 20px;
-[28/09, 8:59 pm] ChatGPT: }
-
-    input, select, button {
-      padding: 12px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      background: #2c2c2c;
-      color: white;
-    }
-
-    button {
-      background: var(--accent);
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #029ca1;
-    }
-
-    .premium {
-      margin-top: 30px;
-      padding: 20px;
-      border-left: 5px solid var(--accent);
-      background: #222;
-      border-radius: 10px;
-    }
-
-    .premium h3 {
-      margin-bottom: 10px;
-    }
-
-    .premium a {
-      display: block;
-      color: var(--accent);
-      text-decoration: none;
-      margin: 6px 0;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 50px;
-      padding: 20px;
-      color: #aaa;
-      font-size: 14px;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>India School Math Tutorials with AI Helper</title>
+<style>
+  body {
+    background-color: #121212;
+    color: #eee;
+    font-family: Arial, sans-serif;
+    margin: 0; padding: 0;
+  }
+  header {
+    background-color: #1e1e1e;
+    padding: 20px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffcc00;
+  }
+  #search-container {
+    margin: 20px auto;
+    max-width: 500px;
+    text-align: center;
+  }
+  input[type="text"] {
+    width: 80%;
+    padding: 12px;
+    border-radius: 30px;
+    border: none;
+    font-size: 1rem;
+  }
+  button {
+    padding: 12px 20px;
+    margin-left: 10px;
+    border-radius: 30px;
+    border: none;
+    background-color: #ffcc00;
+    color: #121212;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  #results, #ai-suggestion {
+    max-width: 700px;
+    margin: 30px auto;
+  .video-item {
+    background: #222;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .video-item:hover {
+    background: #333;
+  }
+  .premium {
+    background: #444;
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 700px;
+    border-radius: 12px;
+    text-align: center;
+    color: gold;
+    font-weight: bold;
+  }
+  #ai-suggestion {
+    background: #222;
+    border-radius: 12px;
+    padding: 15px;
+    font-style: italic;
+  }
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>Lerner MATH</h1>
-    <p>India School Tutorials (Class 1–12)</p>
-  </header>
+<header>India School Math Tutorials (1-12)</header>
 
-  <div class="container">
-    <div class="search-bar">
-      <input type="text" id="state" placeholder="Enter Your State (e.g. Maharashtra)">
-      <select id="class">
-        <option value="">Select Class</option>
-        <option value="1">Class 1</option>
-        <option value="2">Class 2</option>
-        <option value="3">Class 3</option>
-      </select>
-[28/09, 8:59 pm] ChatGPT: <select id="chapter">
-        <option value="">Select Chapter</option>
-        <option value="addition">Addition</option>
-        <option value="subtraction">Subtraction</option>
-      </select>
-      <button onclick="openVideo()">🎥 Watch Tutorial</button>
-    </div>
+<div id="search-container">
+  <input id="searchInput" type="text" placeholder="Enter state and class e.g. Maharashtra 5" />
+  <button onclick="searchVideos()">Search</button>
+</div>
 
-    <div class="premium">
-      <h3>🔥 Premium Tutorials</h3>
-      <a href="https://www.youtube.com/watch?v=Y4aMEh0ZNdE" target="_blank">Class 1: Advanced Addition</a>
-      <a href="https://www.youtube.com/watch?v=UDX-vK78XEY" target="_blank">Class 2: Subtraction Pro</a>
-      <a href="https://www.youtube.com/watch?v=E9_Bcoh_N0A" target="_blank">Class 3: Fast Multiplication</a>
-    </div>
-  </div>
+<div id="results"></div>
 
-  <footer>
-    © 2025 Lerner MATH — All rights reserved.
-  </footer>
+<div id="ai-suggestion"></div>
 
-  <script>
-    function openVideo() {
-      const cls = document.getElementById('class').value;
-      const chap = document.getElementById('chapter').value;
+<div class="premium">
+  Premium Tutorial:<br />
+  <a href="https://www.youtube.com/watch?v=H9c9cnplmzQ" target="_blank" style="color: gold;">Best 12th Class Math Video (Premium)</a>
+</div>
 
-      const links = {
-        "1": {
-          "addition": "https://www.youtube.com/watch?v=Y4aMEh0ZNdE",
-          "subtraction": "https://www.youtube.com/watch?v=QKxwFvbnl2A"
-        },
-        "2": {
-          "addition": "https://www.youtube.com/watch?v=ayg0fLzIuPw",
-          "subtraction": "https://www.youtube.com/watch?v=UDX-vK78XEY"
-        },
-        "3": {
-[28/09, 8:59 pm] ChatGPT: "addition": "https://www.youtube.com/watch?v=E9_Bcoh_N0A"
-        }
-      };
+<script>
+  // Sample data: state, class, video url
+  const tutorials = [
+    {state: "Maharashtra", class: "5", video: "https://www.youtube.com/watch?v=5Ml3c2fJKQw"},
+    {state: "Delhi", class: "7", video: "https://www.youtube.com/watch?v=k5N2I3QwT-4"},
+[28/09, 9:12 pm] ChatGPT: {state: "Karnataka", class: "10", video: "https://www.youtube.com/watch?v=UbULJdw0F7Y"},
+    {state: "Uttar Pradesh", class: "12", video: "https://www.youtube.com/watch?v=H9c9cnplmzQ"},
+    {state: "Tamil Nadu", class: "1", video: "https://www.youtube.com/watch?v=H5gXfQ2WgdU"}
+    // Add more as needed
+  ];
 
-      const link = links[cls]?.[chap];
-      if (link) {
-        window.open(link, "_blank");
-      } else {
-        alert("Video not found. Please check your selection.");
-      }
+  function searchVideos() {
+    const input = document.getElementById("searchInput").value.toLowerCase().trim();
+    const resultsDiv = document.getElementById("results");
+    const aiDiv = document.getElementById("ai-suggestion");
+
+    resultsDiv.innerHTML = "";
+    aiDiv.innerHTML = "";
+
+    if(!input) {
+      alert("Please enter state and class");
+      return;
     }
-  </script>
+
+    // Split input for state and class search
+    let [stateInput, classInput] = input.split(" ");
+    if(!stateInput || !classInput) {
+      alert("Please enter in format: State Class (e.g. Maharashtra 5)");
+      return;
+    }
+    classInput = classInput.trim();
+
+    // Filter tutorials for search results
+    const filtered = tutorials.filter(tut => tut.state.toLowerCase() === stateInput && tut.class === classInput);
+
+    if(filtered.length === 0) {
+      resultsDiv.innerHTML = "<p>No tutorials found for this state and class.</p>";
+    } else {
+      filtered.forEach(tut => {
+[28/09, 9:12 pm] ChatGPT: const videoDiv = document.createElement("div");
+        videoDiv.className = "video-item";
+        videoDiv.innerHTML = `<strong>tut.state Class{tut.class} Math Tutorial</strong><br/>
+                              <a href="tut.video" target="_blank" style="color:#ffcc00;">Watch Video</a>`;
+        resultsDiv.appendChild(videoDiv);
+      );
+    
+
+    // AI suggestion: find closest matching tutorial
+    const aiSuggestion = tutorials.find(tut => tut.class === classInput);
+    if(aiSuggestion) 
+      aiDiv.innerHTML = `<strong>AI Suggestion:</strong> Try this math tutorial for Class{classInput} - <a href="${aiSuggestion.video}" target="_blank" style="color:#ffcc00;">Watch here</a>`;
+    } else {
+      aiDiv.innerHTML = `<strong>AI Suggestion:</strong> Sorry, no suggestions found.`;
+    }
+  }
+</script>
 
 </body>
 </html>

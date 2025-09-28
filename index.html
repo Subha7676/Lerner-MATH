@@ -1,103 +1,164 @@
-```html
+html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Lerner MATH</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lerner MATH - India Schools</title>
   <style>
+    :root {
+      --bg: #121212;
+      --card: #1e1e1e;
+      --text: #f1f1f1;
+      --accent: #00adb5;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background: #f2f2f2;
+      padding: 0;
     }
+
     header {
-      background: #007acc;
-      color: white;
-      padding: 20px;
+      background: #000;
       text-align: center;
+      padding: 30px 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
-    .search-box {
-      text-align: center;
-      margin: 20px;
+
+    header h1 {
+      font-size: 2.5em;
+      color: var(--accent);
     }
-    input[type="text"] {
-      width: 60%;
-      padding: 10px;
-      font-size: 16px;
-    }
-    .subjects {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .subject {
-      background: white;
-      margin: 10px;
-      padding: 15px;
-      border-radius: 5px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-      width: 200px;
-      text-align: center;
-    }
-    .subject a {
-      text-decoration: none;
-      color: #007acc;
-      font-weight: bold;
-    }
-    .premium {
-      background: #ffeaa7;
+
+    .container {
+      max-width: 700px;
       margin: 30px auto;
+      background: var(--card);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,255,255,0.1);
+    }
+
+    .search-bar {
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+      margin-bottom: 20px;
+[28/09, 8:59 pm] ChatGPT: }
+
+    input, select, button {
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      background: #2c2c2c;
+      color: white;
+    }
+
+    button {
+      background: var(--accent);
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #029ca1;
+    }
+
+    .premium {
+      margin-top: 30px;
       padding: 20px;
-      width: 90%;
-      text-align: center;
+      border-left: 5px solid var(--accent);
+      background: #222;
       border-radius: 10px;
     }
-[26/09, 3:56 pm] ChatGPT: </style>
+
+    .premium h3 {
+      margin-bottom: 10px;
+    }
+
+    .premium a {
+      display: block;
+      color: var(--accent);
+      text-decoration: none;
+      margin: 6px 0;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px;
+      color: #aaa;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
+
   <header>
     <h1>Lerner MATH</h1>
-    <p>Math tutorials for Class 1 to 12 (India)</p>
+    <p>India School Tutorials (Class 1–12)</p>
   </header>
 
-  <div class="search-box">
-    <input type="text" placeholder="Search by State, Class or Topic..." onkeyup="searchFunction()">
+  <div class="container">
+    <div class="search-bar">
+      <input type="text" id="state" placeholder="Enter Your State (e.g. Maharashtra)">
+      <select id="class">
+        <option value="">Select Class</option>
+        <option value="1">Class 1</option>
+        <option value="2">Class 2</option>
+        <option value="3">Class 3</option>
+      </select>
+[28/09, 8:59 pm] ChatGPT: <select id="chapter">
+        <option value="">Select Chapter</option>
+        <option value="addition">Addition</option>
+        <option value="subtraction">Subtraction</option>
+      </select>
+      <button onclick="openVideo()">🎥 Watch Tutorial</button>
+    </div>
+
+    <div class="premium">
+      <h3>🔥 Premium Tutorials</h3>
+      <a href="https://www.youtube.com/watch?v=Y4aMEh0ZNdE" target="_blank">Class 1: Advanced Addition</a>
+      <a href="https://www.youtube.com/watch?v=UDX-vK78XEY" target="_blank">Class 2: Subtraction Pro</a>
+      <a href="https://www.youtube.com/watch?v=E9_Bcoh_N0A" target="_blank">Class 3: Fast Multiplication</a>
+    </div>
   </div>
 
-  <div class="subjects" id="subjectList">
-    <div class="subject"><a href="https://www.youtube.com/results?search_query=class+1+math+tutorial">Class 1</a></div>
-    <div class="subject"><a href="https://www.youtube.com/results?search_query=class+2+math+tutorial">Class 2</a></div>
-    <div class="subject"><a href="https://www.youtube.com/results?search_query=class+3+math+tutorial">Class 3</a></div>
-    <div class="subject"><a href="https://www.youtube.com/results?search_query=class+4+math+tutorial">Class 4</a></div>
-    <div class="subject"><a href="https://www.youtube.com/results?search_query=class+5+math+tutorial">Class 5</a></div>
-    <div class="subject"><a href="https://www.youtube.com/results?search_query=class+6+math+tutorial">Class 6</a></div>
-    <div class="subject"><a href="https://www.youtube.com/results?search_query=class+7+math+tutorial">Class 7</a></div>
-    <div class="subject"><a href="https://www.youtube.com/results?search_query=class+8+math+tutorial">Class 8</a></div>
-[26/09, 3:56 pm] ChatGPT: <div class="subject"><a href="https://www.youtube.com/results?search_query=class+9+math+tutorial">Class 9</a></div>
-    <div class="subject"><a href="https://www.youtube.com/results?search_query=class+10+math+tutorial">Class 10</a></div>
-    <div class="subject"><a href="https://www.youtube.com/results?search_query=class+11+math+tutorial">Class 11</a></div>
-    <div class="subject"><a href="https://www.youtube.com/results?search_query=class+12+math+tutorial">Class 12</a></div>
-  </div>
-
-  <div class="premium">
-    <h2>Premium Section 🔒</h2>
-    <p>Best handpicked math videos without ads</p>
-    <a href="https://www.youtube.com/@TopMathPremium" target="_blank">Watch Now</a>
-  </div>
+  <footer>
+    © 2025 Lerner MATH — All rights reserved.
+  </footer>
 
   <script>
-    function searchFunction() {
-      const input = document.querySelector("input").value.toLowerCase();
-      const items = document.querySelectorAll(".subject");
-      items.forEach(item => {
-        const text = item.innerText.toLowerCase();
-        item.style.display = text.includes(input) ? "block" : "none";
-      });
+    function openVideo() {
+      const cls = document.getElementById('class').value;
+      const chap = document.getElementById('chapter').value;
+
+      const links = {
+        "1": {
+          "addition": "https://www.youtube.com/watch?v=Y4aMEh0ZNdE",
+          "subtraction": "https://www.youtube.com/watch?v=QKxwFvbnl2A"
+        },
+        "2": {
+          "addition": "https://www.youtube.com/watch?v=ayg0fLzIuPw",
+          "subtraction": "https://www.youtube.com/watch?v=UDX-vK78XEY"
+        },
+        "3": {
+[28/09, 8:59 pm] ChatGPT: "addition": "https://www.youtube.com/watch?v=E9_Bcoh_N0A"
+        }
+      };
+
+      const link = links[cls]?.[chap];
+      if (link) {
+        window.open(link, "_blank");
+      } else {
+        alert("Video not found. Please check your selection.");
+      }
     }
   </script>
+
 </body>
 </html>
-
-```html
-<a href="bar.html">Search Tutorial</a>
-```
